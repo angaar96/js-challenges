@@ -61,7 +61,7 @@ export const checkIfNewHighScore = (score, highScore) => {
 };
 
 /**
- * A function that converts a temperature a in celsius to fahrenheit and outputs it in a string format -> "15 degrees celsius is 59 degrees fahrenheit".
+ * A function that converts a temperature a in celsuis to fahrenheit and outputs it in a string format -> "15 degrees celsius is 59 degrees fahrenheit".
  *
  * @param {number} tempInCelsius 15
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
@@ -72,7 +72,7 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
 };
 
 /**
- * A function that calculates the number of snickers needed for the rest of your life based on the number you eat per day,
+ * A function that calculates the numebr of snickers needed for the rest of your life based on the number you eat per day,
  * your age and your maximum age.
  *
  * @param {number} snickersPerDay 2
@@ -131,12 +131,17 @@ export const getGrade = (score) => {
  * @param {number} radius 3
  * @returns {number} 28.27
  */
+<<<<<<< HEAD
 export const calculateAreaOfCirlce = (radius) => {
   let areaOfCircle = Math.PI * radius**2;
   let areaOfCircle2DP = areaOfCircle.toFixed(2); 
   // to fixed gives a string. annoying
   let areaOfCircle2DP_float = parseFloat(areaOfCircle2DP);
   return areaOfCircle2DP_float;
+=======
+export const calculateAreaOfCircle = (radius) => {
+  /* Write your code here */
+>>>>>>> 61d1bb0e146f1f2564ebbb271e309e9b1a9e4b75
 };
 
 /* Expert Challenge */
