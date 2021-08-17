@@ -17,7 +17,7 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName, lastName) => {
-  /* Write your code here */
+  return firstName + " " + lastName; 
 };
 
 /**
@@ -28,8 +28,8 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const findSmallestNumber = (number1, number2) => {
+  return number1 < number2 ? number1: number2; 
 };
 
 /**
@@ -40,8 +40,8 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const multiplyNumbers = (number1, number2) => {
+  return number1 * number2;
 };
 
 /* Intermediate Challenges */
@@ -57,21 +57,22 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  return score > highScore ? "You got a new high score!" : score == highScore ? "So close!" : "Better luck next time!" 
 };
 
 /**
- * A function that converts a temperature a in celsuis to fahrenheit and outputs it in a string format -> "15 degrees celsius is 59 degrees fahrenheit".
+ * A function that converts a temperature a in celsius to fahrenheit and outputs it in a string format -> "15 degrees celsius is 59 degrees fahrenheit".
  *
  * @param {number} tempInCelsius 15
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+  let tempInFahrenheit = (tempInCelsius * 9/5) + 32; 
+  return `${tempInCelsius} degrees celsius is ${tempInFahrenheit} degrees fahrenheit`
 };
 
 /**
- * A function that calculates the numebr of snickers needed for the rest of your life based on the number you eat per day,
+ * A function that calculates the number of snickers needed for the rest of your life based on the number you eat per day,
  * your age and your maximum age.
  *
  * @param {number} snickersPerDay 2
@@ -80,7 +81,10 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  let snickersAnnualTotal = snickersPerDay * 365;
+  let restOfLife = maxAge - age;
+  let snickersLifeTotal = restOfLife * snickersAnnualTotal; 
+  return snickersLifeTotal; 
 };
 
 /* Advanced Challenges */
@@ -100,7 +104,25 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  
+  if (score > 100 || score < 0) {
+    return "Score unavailable";
+  } else if (typeof(score) == "string" || score == true) {
+    return "Score unavailable"
+  }
+   else if (score > 79) {
+    return "A";
+  } else if (score > 69) {
+    return "B";
+  } else if (score > 59) {
+    return "C";
+  } else if (score > 49) {
+    return "D"; 
+  } else if (score > 39) {
+    return "E" ; 
+  } else {
+    return "F"
+    }
 };
 
 /**
@@ -110,7 +132,11 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCirlce = (radius) => {
-  /* Write your code here */
+  let areaOfCircle = Math.PI * radius**2;
+  let areaOfCircle2DP = areaOfCircle.toFixed(2); 
+  // to fixed gives a string. annoying
+  let areaOfCircle2DP_float = parseFloat(areaOfCircle2DP);
+  return areaOfCircle2DP_float;
 };
 
 /* Expert Challenge */
