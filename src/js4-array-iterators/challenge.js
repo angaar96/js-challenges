@@ -22,7 +22,8 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  let falseRemoved = booleanArr.filter(i => {return i === true})
+  return falseRemoved;
 };
 
 /**
@@ -34,7 +35,7 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+  return numbersArr.map(number => {return `${number*100}%`})
 };
 
 /**
@@ -47,7 +48,7 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  return possessionsArr.map(possession => {return `${name} ${possession}`})
 };
 
 /**
@@ -72,8 +73,9 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
-};
+  let numberArray = numberString.split("+");
+  return numberArray.map(number => {return parseInt(number)}
+  )};
 
 /**
  * A function that takes a string of numbers joined with a "+" and creates a new array based on if the number is even or odd.
@@ -84,7 +86,10 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  let numberArray = convertStringToNumbersArray(numberString);
+  return numberArray.map(number => {
+    return number % 2 == 0 ? "even" : "odd" ;)
+
 };
 
 /**
@@ -97,7 +102,9 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  return booksArr.filter(book => {
+    return book.includes(searchTerm)
+  })
 };
 
 /**
@@ -117,7 +124,7 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
+  const cleanedArr = stringArr.map((string) => {
     const cleanStr = string.trim().toLowerCase();
     return cleanStr;
   });
@@ -143,7 +150,16 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  let regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+  let stringArray = string.trim().replace(regex, "").split();
+  let newArray = stringArray.map(i => {
+    if (stringArray.indexOf(i) % 2 === 0) {
+      return i.toUpperCase(); 
+    } else {
+      return i.toLowerCase();  
+  });
+  
+  return newArray;
 };
 
 /**
