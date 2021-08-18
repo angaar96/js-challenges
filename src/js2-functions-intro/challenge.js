@@ -131,17 +131,12 @@ export const getGrade = (score) => {
  * @param {number} radius 3
  * @returns {number} 28.27
  */
-<<<<<<< HEAD
-export const calculateAreaOfCirlce = (radius) => {
+export const calculateAreaOfCircle = (radius) => {
   let areaOfCircle = Math.PI * radius**2;
   let areaOfCircle2DP = areaOfCircle.toFixed(2); 
   // to fixed gives a string. annoying
   let areaOfCircle2DP_float = parseFloat(areaOfCircle2DP);
   return areaOfCircle2DP_float;
-=======
-export const calculateAreaOfCircle = (radius) => {
-  /* Write your code here */
->>>>>>> 61d1bb0e146f1f2564ebbb271e309e9b1a9e4b75
 };
 
 /* Expert Challenge */
@@ -162,5 +157,19 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
-};
+  if (getGrade(score) == "A") {
+    return `Congratulations ${name}! You achieved a grade of A.`
+  } else if (getGrade(score) == "B") {
+    return `Well done ${name}! You achieved a grade of B.`
+  } else if (getGrade(score) == "C") {
+    return `Nicely done ${name}! You achieved a grade of C.`
+  } else if (getGrade(score) == "D") {
+    return `That's okay ${name}. You achieved a grade of D.`
+  } else if (getGrade(score) == "E") {
+    return `Too bad ${name}. You achieved a grade of E.`
+  } else if (getGrade(score) == "F") {
+    return `Sorry ${name}. You achieved a grade of F. There's always next year.`
+  } else {
+    return `My apologies ${name}, there's been an error in processing your grade.`
+  }
+}

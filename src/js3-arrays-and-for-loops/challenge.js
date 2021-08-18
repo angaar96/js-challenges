@@ -22,7 +22,8 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+  let answer = ingredientsArr.join("+"); 
+  return answer; 
 };
 
 /**
@@ -33,7 +34,11 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  let copiedArray = [...itemsArr];
+  let firstItem = copiedArray.shift();
+  let lastItem = copiedArray.pop(); 
+  let newArray = [firstItem, lastItem];
+  return newArray; 
 };
 
 /**
@@ -44,7 +49,11 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  let total = 0; 
+  for (let i =0; i<scoreArr.length ; i++) {
+    total += scoreArr[i];
+  }
+  return total;
 };
 
 /**
@@ -60,7 +69,11 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  let total = 0; 
+  for (let i = 0; i<rangeMax+1; i++) {
+    total += i; 
+  }
+  return total;
 };
 
 /**
@@ -71,7 +84,10 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  let copiedArray = [...itemsArr];
+  let lastItem = copiedArray.pop(); 
+  copiedArray.unshift(lastItem); 
+  return copiedArray;
 };
 
 /**
@@ -89,7 +105,13 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+  let oddArray = [];
+  for (let i = 0; i < numberArr.length; i++) {
+    if (numberArr[i] % 2 !== 0) {
+      oddArray.push(numberArr[i])
+    }
+  }
+  return oddArray;
 };
 
 /**
@@ -105,7 +127,19 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+  let total = 0; 
+  if (numberArr.length == 0) {
+    return 0; 
+  } else {
+    for (let i = 0; i<numberArr.length; i++) {
+      total += numberArr[i]; 
+    }
+    let noOfItems = numberArr.length; 
+    let average = total / noOfItems;
+    let roundedAverage = Math.round(average);  
+    return roundedAverage; 
+  }
+  
 };
 
 /**
@@ -116,7 +150,9 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+  let copiedArray = [...toReverseArr];
+  copiedArray.reverse(); 
+  return copiedArray;
 };
 
 /**
