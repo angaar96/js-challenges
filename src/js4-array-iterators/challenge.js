@@ -175,7 +175,7 @@ export const formatString = (string) => {
 
 export const fizzBuzz = (mixedArray) => {
   let cleanedArray = mixedArray.filter(element => {
-    return typeof(element) == "number" && element >= 0; 
+    return typeof(element) === "number" && element >= 0; 
   })
   let fizzBuzzedArray = cleanedArray.map(element => {
     if (element % 3 == 0 && element % 5 == 0) {
@@ -191,5 +191,5 @@ export const fizzBuzz = (mixedArray) => {
   let finalArray = fizzBuzzedArray.map(element => {
     return typeof(element) == "number" ? element.toString() : element
   })
-  return finalArray 
+  return finalArray; 
   }
