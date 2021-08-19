@@ -88,9 +88,7 @@ export const convertStringToNumbersArray = (numberString) => {
 export const createOddEvenArray = (numberString) => {
   let numberArray = convertStringToNumbersArray(numberString);
   return numberArray.map(number => {
-    return number % 2 == 0 ? "even" : "odd" ;)
-
-};
+    return number % 2 == 0 ? "even" : "odd"})};
 
 /**
  * A function that takes an array of book titles and a search term.
@@ -150,16 +148,6 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  let regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-  let stringArray = string.trim().replace(regex, "").split();
-  let newArray = stringArray.map(i => {
-    if (stringArray.indexOf(i) % 2 === 0) {
-      return i.toUpperCase(); 
-    } else {
-      return i.toLowerCase();  
-  });
-  
-  return newArray;
 };
 
 /**
@@ -186,5 +174,22 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
-};
+  let cleanedArray = mixedArray.filter(element => {
+    return typeof(element) == "number" && element >= 0; 
+  })
+  let fizzBuzzedArray = cleanedArray.map(element => {
+    if (element % 3 == 0 && element % 5 == 0) {
+      return element = "FizzBuzz"
+    } else if (element % 3 == 0) {
+      return element = "Fizz" 
+    } else if (element % 5 == 0) {
+      return element = "Buzz"
+    } else {
+      return element
+    }
+  })
+  let finalArray = fizzBuzzedArray.map(element => {
+    return typeof(element) == "number" ? element.toString() : element
+  })
+  return finalArray 
+  }
