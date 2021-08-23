@@ -21,7 +21,8 @@
  * @return {number} The price of the piece of furniture
  */
 export const getFurniturePrice = (furniture) => {
-  /* Write code here */
+  const furniturePrice = furniture.price;
+  return furniturePrice; 
 };
 
 /**
@@ -32,7 +33,8 @@ export const getFurniturePrice = (furniture) => {
  * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
  */
 export const setFurnitureStoreLocation = (furniture, location) => {
-  /* Write code here */
+  furniture.location = location;
+  return furniture; 
 };
 
 /**
@@ -46,7 +48,13 @@ export const setFurnitureStoreLocation = (furniture, location) => {
  * @returns {{name: string, noOfSeats: number, engineType: string, canTravelSolarSystems: boolean}} spaceship - The space ship object
  */
 export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems) => {
-  /* Write code here */
+  const spaceship = {
+    name: name,
+    noOfSeats: noOfSeats,
+    engineType: engineType,
+    canTravelSolarSystems: canTravelSolarSystems 
+  }
+  return spaceship;
 };
 
 /* Intermediate Challenges */
@@ -59,7 +67,10 @@ export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
 export const setUserName = (user, username) => {
-  /* Write code here */
+  if (!user.username) {
+    user.username = username; 
+  }
+  return user;
 };
 
 /**
@@ -70,7 +81,14 @@ export const setUserName = (user, username) => {
  * @returns {{fullName: string, firstName: string, lastName: string}} A customer object from the database with the name separated into first and last
  */
 export const splitFullNameToFirstAndLast = (customer) => {
-  /* Write code here */
+  let name_array = customer.fullName.split(" ");
+  let customerName = {
+    fullName: customer.fullName,
+    firstName: name_array[0],
+    lastName: name_array[1],
+  }
+  return customerName; 
+
 };
 
 /**
@@ -83,7 +101,7 @@ export const splitFullNameToFirstAndLast = (customer) => {
  * @returns {any} value - The value you have accessed on the object
  */
 export const accessGivenKey = (object, key) => {
-  /* Write code here */
+  return object[key]; 
 };
 
 /* Advanced Challenges */
@@ -96,7 +114,9 @@ export const accessGivenKey = (object, key) => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user) => {
-  /* Write code here */
+  const address_object = user.address;
+  let address_string = address_object.line1 + " " + address_object.line2 + " " + address_object.city + " " + address_object.postcode;
+  return address_string;
 };
 
 /**
@@ -108,7 +128,9 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
-  /* Write code here */
+  let safeAllergens = allergenList.filter(i=> {return customer.allergies.includes(i) == false}); 
+  customer.safeAllergens = safeAllergens;  
+  return customer;
 };
 
 /* Expert Challenge */
@@ -122,5 +144,5 @@ export const setSafeAllergens = (customer, allergenList) => {
  * @returns {{id: number, location: string, sku: string, name: string, price: number, isAvailable: boolean}}
  */
 export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
-  /* Write code here */
+  
 };

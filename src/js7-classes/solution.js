@@ -262,12 +262,7 @@ export class Modal {
    * A method that renders the html for a modal.
    */
   renderHtml() {
-    this.htmlRef.innerHTML = `
-    <div class="modal">
-      <h2 class="modal--title">${this.title}</h2>
-      <p class="modal--message">${this.message}</p>
-    </div>
-    `;
+    this.htmlRef.innerHTML = `<div class="modal"><h2 class="modal--title">${this.title}</h2><p class="modal--message">${this.message}</p></div>`;
   }
 
   /**
