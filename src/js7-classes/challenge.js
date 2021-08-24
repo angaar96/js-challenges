@@ -189,25 +189,27 @@ export class Engine {
    * @return {string} "Engine has started running" or "Engine is already running"
    */
   startEngine() {
-    if (engineIsRunning) {
-      return "Engine is already running"} else {
-        this.engineIsRunning = true;
-        return "Engine has started running";
-      }
-      }
+    if (this.engineIsRunning) {
+      return ("Engine is already running");
+    } else {
+      this.engineIsRunning = true;
+      return "Engine has started running";
+    }
+  }
 
   /**
    * Updates engineIsRunning to false and returns a conditonal string based if the engine has already stopped.
    * @return {string} "Engine has stopped running" or "Engine has already stopped running"
    */
   stopEngine() {
-    if (engineIsRunning) {
+    if (this.engineIsRunning) {
       this.engineIsRunning = false; 
-      return "Engine has stopped running"} else {
-        return "Engine has already stopped running"
-      }
+      return ("Engine has stopped running")
+    } else {
+      return ("Engine has already stopped running")
     }
   }
+}
 
 
 /**
@@ -258,8 +260,12 @@ export class Modal {
    * A method that renders the html for a modal.
    */
   renderHtml() {
-    this.htmlRef.innerHTML = ""
-    this.htmlRef.innerHTML =`<div class="modal"><h2 class="modal--title">${this.title}</h2><p class="modal--message">${this.message}</p></div>`;
+    this.htmlRef.innerHTML =`
+    <div class="modal">
+      <h2 class="modal--title">${this.title}</h2>
+      <p class="modal--message">${this.message}</p>
+    </div>
+    `;
   }
 
   /**
