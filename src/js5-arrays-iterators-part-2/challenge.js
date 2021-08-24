@@ -21,8 +21,9 @@
  * @return {number} 30
  */
 
-export const totalScoresArr = (scoresArr) => {
-  return;
+export const totalScoresArr = (numberArr) => {
+  const total = numberArr.reduce((total, currentAmount) => total + currentAmount);
+  return total;
 };
 
 /**
@@ -35,7 +36,8 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  return toReverse.split("").reverse().join(""); 
+
 };
 
 /**
@@ -48,7 +50,11 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  let lowerCaseArray = charcterArr.map(char => {
+    return char.toLowerCase(); 
+  })
+  let sortedArray = lowerCaseArray.sort(); 
+  return sortedArray; 
 };
 
 /**
@@ -63,7 +69,8 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  // you need the comparison parameters for sorting numbers with .sort()
+  return numberArr.sort((a,b) => a-b).reverse();
 };
 
 /**
@@ -94,8 +101,12 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
-};
+  if (stockList.includes(toCheck)) {
+    return `${toCheck} is instock, it is on aisle ${stockList.indexOf(toCheck)}.`
+  } else {
+    return `Sorry ${toCheck} is not instock.`
+  } 
+}
 
 /**
  * A function that takes an array of colours and checks if EVERY colour is a primary colour.
@@ -108,7 +119,7 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  // need to figure out how to use .every()
 };
 
 /**
@@ -125,7 +136,9 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  let clone_string = [...stringOne];
+  let clone_reversed = clone_string.reverse()
+  return clone_reversed.join("") === stringOne;
 };
 
 /**
@@ -139,8 +152,11 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
-};
+  let totalArray = scoresArr.map(number => {
+    return number.reduce((total, currentAmount) => total + currentAmount)
+  })
+  return totalArray;
+}
 
 /**
  * Expert Challenge
