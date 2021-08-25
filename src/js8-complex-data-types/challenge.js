@@ -17,7 +17,7 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr) => {
-  let quotesArray = employeeArr.map(employee => {
+  const quotesArray = employeeArr.map(employee => {
     return employee.quote; 
   })
   return quotesArray;
@@ -30,7 +30,7 @@ export const getEmployeeQuotes = (employeeArr) => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr) => {
-  let managersArray = employeeArr.filter(employee => {
+  const managersArray = employeeArr.filter(employee => {
     return employee.isManagement;
   })
   return managersArray;
@@ -56,10 +56,10 @@ export const getNumberOfKeys = (object) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
-  let pricesArray = shoppingBasketArr.map(basket => {
+  const pricesArray = shoppingBasketArr.map(basket => {
     return basket.price;
   })
-  let mostExpensiveIndex = pricesArray.indexOf(Math.max(...pricesArray)); 
+  const mostExpensiveIndex = pricesArray.indexOf(Math.max(...pricesArray)); 
   return shoppingBasketArr[mostExpensiveIndex]; 
 };
 
@@ -79,10 +79,10 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
 export const settotalPrice = (shoppingBasketArr) => {
-  let copiedArray = [...shoppingBasketArr];
-  let totalPriceArray = copiedArray.map(basket => {
+  const copiedArray = [...shoppingBasketArr];
+  const totalPriceArray = copiedArray.map(basket => {
     // need to make sure we spread the OBJECT as we don't wan't to alter it. 
-    let copiedObject = {...basket}
+    const copiedObject = {...basket}
     copiedObject.totalPrice = copiedObject.price*copiedObject.quantity; 
     return copiedObject;
   })
@@ -96,16 +96,26 @@ export const settotalPrice = (shoppingBasketArr) => {
  * @returns {number} The total cost of the order
  */
 export const totalShoppingBasket = (shoppingBasketArr) => {
-  let copiedArray = [...shoppingBasketArr];
-  let totalPriceArray = copiedArray.map(basket => {
-    let basket_item = {...basket};
-    return basket_item.price*basket_item.quantity; 
+  const copiedArray = [...shoppingBasketArr];
+  const totalPriceArray = copiedArray.map(basket => {
+    const basketItem = {...basket};
+    return basketItem.price*basketItem.quantity; 
   });
-  let total_cost = 0; 
-  for (let i=0; i<totalPriceArray.length; i++) {
-    total_cost += totalPriceArray[i];
-  }
-  return total_cost; 
+  // For loop is unneccesary - you can use reduce 
+  // for (let i=0; i<totalPriceArray.length; i++) {
+  //   total_cost += totalPriceArray[i];
+  // } 
+  const totalCost = totalPriceArray.reduce((accumulator, current) => {
+    accumulator += current;
+    return accumulator;
+  })
+  return totalCost;
+  // Improvements: 
+  // use a for each loop instead 
+  // total price is already there in the original, can call function above
+  // you can also use a reduce to sum values. 
+  // use consts all the time 
+  // use camelCase all the time w/ JS except with classes which use Pascalcase
 };
 
 /* Advanced Challenges */
@@ -118,9 +128,9 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
 export const getImportantKeys = (mealsArr) => {
-  let mealsArrCopy = [...mealsArr];
-  let newMealsArray = mealsArrCopy.map(meal => {
-    let item = {...meal};
+  const mealsArrCopy = [...mealsArr];
+  const newMealsArray = mealsArrCopy.map(meal => {
+    const item = {...meal};
     delete item.timeStamp;
     delete item.userCreated;
     return item; 
@@ -139,9 +149,9 @@ export const getImportantKeys = (mealsArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
 export const setImportantKeys = (mealsArr) => {
-  let mealsArrCopy = [...mealsArr];
-  let newMealsArray = mealsArrCopy.map(meal => {
-    let item = {...meal};
+  const mealsArrCopy = [...mealsArr];
+  const newMealsArray = mealsArrCopy.map(meal => {
+    const item = {...meal};
     if (!item.isVegetarian) {
       item.isVegetarian = false; 
     }
